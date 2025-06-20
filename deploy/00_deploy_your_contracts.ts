@@ -33,22 +33,36 @@ const deployBSTR: DeployFunction = async function (hre: HardhatRuntimeEnvironmen
     value: "100000000000000000", // 0.1 ETH in wei
   });
 
-  // log("🗳️ Deploying BSTRGovernanceWrapper...");
-  // const governance = await deploy("BSTRGovernanceWrapper", {
-  //   from: deployer,
-  //   args: [bstrToken.address],
-  //   log: true,
-  //   autoMine: true,
-  // });
-
-  const createClickableLink = (address: string, label: string) => {
+  const createClickableLinkBSTRToken = (address: string, label: string) => {
     const baseUrl = "https://sepolia.basescan.org/address/";
     return `\x1b]8;;${baseUrl}${address}\x07${label}\x1b]8;;\x07`;
   };
 
+  
+  // Governance Contract Deployment That will be used for the governance of the BSTRToken later after the token is deployed & REX is ready for the governance DAO.
+
+  // const IVotes = "0x0000000000000000000000000000000000000000"; // This is the address of the IVotes contract
+  // const TimelockController = "0x0000000000000000000000000000000000000000"; // This is the address of the timelock contract
+  // const votingDelay = 1;
+  // const votingPeriod = 100;
+  // const proposalThreshold = 1;
+  // const quorumPercentage = 1;
+
+  // const GovernorBSTR = await deploy("GovernorBSTR", {
+  //   from: deployer,
+  //   args: [IVotes, TimelockController, votingDelay, votingPeriod, proposalThreshold, quorumPercentage],
+  //   log: true,
+  //   autoMine: true,
+  // });
+
+  // const createClickableLinkGovernorBSTR = (address: string, label: string) => {
+  //   const baseUrl = "https://sepolia.basescan.org/address/";
+  //   return `\x1b]8;;${baseUrl}${address}\x07${label}\x1b]8;;\x07`;
+  // };
+
   console.log("\n=== 📝 Deployment Summary ===");
-  console.log(`🪙 BSTRToken: ${createClickableLink(bstrToken.address, bstrToken.address)}`);
-  // console.log(`🗳️ gBSTR Governance Wrapper: ${createClickableLink(governance.address, governance.address)}`);
+  console.log(`🪙 BSTRToken: ${createClickableLinkBSTRToken(bstrToken.address, bstrToken.address)}`);
+  // console.log(`🗳️ gBSTR Governance Wrapper: ${createClickableLinkGovernorBSTR(GovernorBSTR.address, GovernorBSTR.address)}`);
 };
 
 export default deployBSTR;

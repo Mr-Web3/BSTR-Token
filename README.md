@@ -142,10 +142,16 @@ Token Holders → Delegate Votes → Create Proposals → Vote → Execute (via 
 // deploy/00_deploy_your_contracts.ts
 const initialSupply = parseUnits("1000000", 9); // 1M BSTR tokens
 const feeReceiver = deployer; // ETH recipient
-const swapRouter = "0x1689E7B1F10000AE47eBfE339a4f69dECd19F602"; // Base Sepolia
-const collectors = ["0xBe94738C517E3f71475EF68AD62215c38949cA58"];
+const swapRouter = "SWAP_ROUTER_ADDRESS_BASE_MAIN_NET"; // Base Sepolia
+const collectors = ["COLLECTORS_ADDRESS_REX"];
 const shares = [100]; // 100% to single collector
 const value = "100000000000000000"; // 0.1 ETH for fee receiver
+```
+
+### To Install Dependencies Clone This Repo Then Run
+
+```bash
+yarn
 ```
 
 ### Test Net Deployment Command
