@@ -151,13 +151,25 @@ const value = "100000000000000000"; // 0.1 ETH for fee receiver
 ### Test Net Deployment Command
 
 ```bash
-npx hardhat deploy --network baseSepolia
+yarn deploy --network baseSepolia
+```
+
+### Test Net Deployment Verify Command
+
+```bash
+yarn verify --api-url https://api-sepolia.basescan.org
 ```
 
 ### Main Net Deployment Command
 
 ```bash
-npx hardhat deploy --network base
+yarn hardhat deploy --network base
+```
+
+### Main Net Deployment Verify Command
+
+```bash
+yarn verify --api-url https://api.basescan.org
 ```
 
 ## 📌 Post-Deployment Setup
