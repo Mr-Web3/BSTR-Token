@@ -8,7 +8,7 @@ const deployBSTR: DeployFunction = async function (hre: HardhatRuntimeEnvironmen
   const { deployer } = await hre.getNamedAccounts();
   const { deploy, get, log } = hre.deployments;
 
-  const initialSupply = parseUnits("1000000", 9); // 1000000 BSTR
+  const initialSupply = parseUnits("1000000000", 9); // 1000000000 BSTR (1 billion)
   // const feeReceiver = "0x02E0D53DC55F219B3B149F2FbD164Da0e5f936F8"; // Fee receiver address Main net Real Address
   // const swapRouter = "0xYourUniswapRouterAddress"; // <- replace with real router Main net Real Address
   // const collectors = ["0xc402DCe90308bD61eb492B1146BE0236DCcD7e13"]; // Collectors address Main net Real Address
@@ -30,7 +30,7 @@ const deployBSTR: DeployFunction = async function (hre: HardhatRuntimeEnvironmen
     ],
     log: true,
     autoMine: true,
-    value: "100000000000000000", // 0.1 ETH in wei
+    // value: "100000000000000000", // 0.1 ETH in wei
   });
 
   const createClickableLinkBSTRToken = (address: string, label: string) => {

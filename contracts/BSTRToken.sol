@@ -16,7 +16,6 @@ pragma solidity ^0.8.20;
  * to support governance capabilities and gasless vote delegation.
  */
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 import "./libraries/TaxableToken.sol";
@@ -27,7 +26,7 @@ import "./libraries/TaxDistributor.sol";
  * Extended from ERC20Votes and ERC20Permit for snapshot-based voting
  * and off-chain vote delegation support (EIP-2612 compliant).
  */
-contract BSTRToken is ERC20, ERC20Permit, ERC20Votes, TaxableToken, Ownable, ReentrancyGuard {
+contract BSTRToken is ERC20Permit, ERC20Votes, TaxableToken, Ownable {
     address public taxRateUpdater;
     uint8 private constant CUSTOM_DECIMALS = 9;
 

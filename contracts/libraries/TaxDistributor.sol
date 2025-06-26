@@ -11,8 +11,9 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-abstract contract TaxDistributor {
+abstract contract TaxDistributor is ReentrancyGuard {
     using EnumerableSet for EnumerableSet.AddressSet;
 
     EnumerableSet.AddressSet private _collectors;
@@ -91,7 +92,7 @@ abstract contract TaxDistributor {
         emit FeeCollectorUpdated(account, oldShare, share);
     }
 
-    function _distributeFees(address token, uint256 amount, bool inToken) internal returns (bool) {
+    function _distributeFees(address token, uint256 amount, bool inToken) internal nonReentrant returns (bool) {
         if (amount == 0 || totalFeeCollectorsShares == 0) return false;
 
         uint256 distributed = 0;
